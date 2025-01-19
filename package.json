@@ -1,0 +1,27 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo-google-fonts/manrope": "^0.2.3",
+    "@expo-google-fonts/sora": "^0.2.3",
+    "expo": "~52.0.25",
+    "expo-font": "~13.0.3",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native": "0.76.6",
+    "react-native-paper": "^4.12.8",
+    "styled-components": "^5.3.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}

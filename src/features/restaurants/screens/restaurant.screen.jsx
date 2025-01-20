@@ -2,27 +2,15 @@ import { useState } from "react";
 import { Searchbar } from "react-native-paper";
 import styled from "styled-components/native";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-  StyleSheet,
-} from "react-native";
+import { Platform, StatusBar, FlatList } from "react-native";
 
 const Restaurantcontainer = styled.SafeAreaView`
   flex: 1;
-  background-color: ${(props) => props.theme.colors.brand.primary}
-    ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+  background-color: ${(props) => props.theme.colors.ui.tertiary};
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
 const SearchView = styled.View`
-  padding: ${(props) => props.theme.sizes[1]};
-`;
-
-const BodyView = styled.View`
-  flex: 1;
   padding: ${(props) => props.theme.sizes[1]};
 `;
 
@@ -38,9 +26,18 @@ const RestaurantsScreen = () => {
           value={text}
         />
       </SearchView>
-      <BodyView>
-        <RestaurantInfoCard />
-      </BodyView>
+      <FlatList
+        data={[
+          { name: 1 },
+          { name: 2 },
+          { name: 3 },
+          { name: 4 },
+          { name: 5 },
+          { name: 6 },
+        ]}
+        renderItem={() => <RestaurantInfoCard />}
+        keyExtractor={(item) => item.name}
+      />
     </Restaurantcontainer>
   );
 };

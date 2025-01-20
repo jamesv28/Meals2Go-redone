@@ -29,6 +29,7 @@ export const SectionEnd = styled.View`
 
 export const InfoCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.ui.quaternary};
+  margin-bottom: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantImage = styled(Card.Cover)`

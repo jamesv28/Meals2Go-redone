@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { Searchbar } from "react-native-paper";
-import styled from "styled-components/native";
-import RestaurantInfoCard from "../components/restaurant-info-card.component";
-import { Platform, StatusBar, FlatList } from "react-native";
-
-const Restaurantcontainer = styled.SafeAreaView`
-  flex: 1;
-  background-color: ${(props) => props.theme.colors.ui.tertiary};
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`;
-
-const SearchView = styled.View`
-  padding: ${(props) => props.theme.sizes[1]};
-`;
+import RestaurantInfoCard from "../../components/restaurant-info-card.component";
+import { Platform, FlatList } from "react-native";
+import { Restaurantcontainer, SearchView } from "./restaurant.styles";
 
 const RestaurantsScreen = () => {
   const isAndroid = Platform.OS == "android";

@@ -28,7 +28,6 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-  console.log(ratingArray);
   return (
     <InfoCard>
       <RestaurantImage key={name} source={{ uri: photos[0] }} />

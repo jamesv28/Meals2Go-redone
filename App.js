@@ -7,7 +7,25 @@ import {
   Manrope_400Regular,
 } from "@expo-google-fonts/manrope";
 import { useFonts as useSora, Sora_400Regular } from "@expo-google-fonts/sora";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Text } from "react-native";
+import { SafeArea } from "./src/components/utils/safe-area.component";
 // npm run ios && --template blank
+
+const Tab = createBottomTabNavigator();
+
+const Settings = () => (
+  <SafeArea>
+    <Text>Settings</Text>
+  </SafeArea>
+);
+
+const Maps = () => (
+  <SafeArea>
+    <Text>Maps</Text>
+  </SafeArea>
+);
 
 export default function App() {
   const [manropeLoaded] = useManrope({
@@ -23,7 +41,13 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsScreen />
+        <NavigationContainer>
+          <Tab.Navigator>
+            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+            <Tab.Screen name="Settings" component={Settings} />
+            <Tab.Screen name="Map" component={Maps} />
+          </Tab.Navigator>
+        </NavigationContainer>
       </ThemeProvider>
       <ExpoStatusBar />
     </>

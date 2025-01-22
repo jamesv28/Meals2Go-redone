@@ -13,7 +13,7 @@ import { Text } from "react-native";
 import { SafeArea } from "./src/components/utils/safe-area.component";
 import Ionicons from "@expo/vector-icons/Ionicons";
 // npm run ios && --template blank
-
+import { restaurantRequest } from "./src/services/restaurants/restaurant.service";
 const Tab = createBottomTabNavigator();
 const TAB_ICON = {
   Restaurants: "restaurant",

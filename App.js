@@ -15,6 +15,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 // npm run ios && --template blank
 import { restaurantRequest } from "./src/services/restaurants/restaurant.service";
 const Tab = createBottomTabNavigator();
+
 const TAB_ICON = {
   Restaurants: "restaurant",
   Map: "map",

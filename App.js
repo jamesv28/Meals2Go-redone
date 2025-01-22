@@ -13,7 +13,7 @@ import { Text } from "react-native";
 import { SafeArea } from "./src/components/utils/safe-area.component";
 import Ionicons from "@expo/vector-icons/Ionicons";
 // npm run ios && --template blank
-import { restaurantRequest } from "./src/services/restaurants/restaurant.service";
+import { RestaurantsContextProvider } from "./src/services/restaurants/restaurant.context";
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
@@ -56,19 +56,21 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={createScreenOptions}
-            tabBarOptions={{
-              activeTintColor: "#6e57d2",
-              inactiveTintColor: "gray",
-            }}
-          >
-            <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-            <Tab.Screen name="Settings" component={Settings} />
-            <Tab.Screen name="Map" component={Maps} />
-          </Tab.Navigator>
-        </NavigationContainer>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={createScreenOptions}
+              tabBarOptions={{
+                activeTintColor: "#6e57d2",
+                inactiveTintColor: "gray",
+              }}
+            >
+              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+              <Tab.Screen name="Settings" component={Settings} />
+              <Tab.Screen name="Map" component={Maps} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar />
     </>

@@ -10,7 +10,6 @@ export const RestaurantsContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   const retrieveRestaurants = () => {
-    console.log("request", restaurantsRequest());
     setIsLoading(true);
     setTimeout(() => {
       restaurantsRequest()

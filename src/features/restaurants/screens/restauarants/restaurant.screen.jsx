@@ -16,7 +16,6 @@ const RestaurantsScreen = () => {
   const isAndroid = Platform.OS == "android";
   const [text, setText] = useState("");
   const { restaurants, error, isLoading } = useContext(RestaurantsContext);
-  console.log("loading", isLoading);
   return (
     <Restaurantcontainer>
       {isLoading && (

@@ -8,10 +8,6 @@ export const Restaurantcontainer = styled.SafeAreaView`
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 
-export const SearchView = styled.View`
-  padding: ${(props) => props.theme.sizes[1]};
-`;
-
 export const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
 `;

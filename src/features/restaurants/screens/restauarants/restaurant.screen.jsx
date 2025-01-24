@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
 import { View } from "react-native";
-import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
+import { Colors } from "react-native-paper";
 import RestaurantInfoCard from "../../components/restaurant-info-card.component";
 import { Platform, FlatList } from "react-native";
 import {
   Restaurantcontainer,
-  SearchView,
   Loading,
   LoadingContainer,
 } from "./restaurant.styles";
 import Spacer from "../../../../components/spacer/spacer.component";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurant.context.js";
+import SearchComponent from "../../components/search/search.component";
 
 const RestaurantsScreen = () => {
   const isAndroid = Platform.OS == "android";
@@ -23,13 +23,7 @@ const RestaurantsScreen = () => {
           <Loading size={50} animating={true} color={Colors.blue300} />
         </LoadingContainer>
       )}
-      <SearchView>
-        <Searchbar
-          placeholder="Search"
-          onChangeText={() => setT}
-          value={text}
-        />
-      </SearchView>
+      <SearchComponent />
       <FlatList
         data={restaurants}
         renderItem={({ item }) => {

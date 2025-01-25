@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Colors } from "react-native-paper";
 import RestaurantInfoCard from "../../components/restaurant-info-card.component";
-import { Platform, FlatList } from "react-native";
+import { Platform, FlatList, Pressable } from "react-native";
 import {
   Restaurantcontainer,
   Loading,
@@ -11,7 +11,7 @@ import Spacer from "../../../../components/spacer/spacer.component";
 import { RestaurantsContext } from "../../../../services/restaurants/restaurant.context";
 import Search from "../../components/search/search.component";
 
-const RestaurantsScreen = () => {
+const RestaurantsScreen = ({ navigation }) => {
   const isAndroid = Platform.OS == "android";
   const [text, setText] = useState("");
   const { restaurants, error, isLoading } = useContext(RestaurantsContext);
@@ -27,9 +27,11 @@ const RestaurantsScreen = () => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <Spacer size="large" position="bottom">
-              <RestaurantInfoCard restaurant={item} />
-            </Spacer>
+            <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+              <Spacer size="large" position="bottom">
+                <RestaurantInfoCard restaurant={item} />
+              </Spacer>
+            </Pressable>
           );
         }}
         keyExtractor={(item) => item.name}

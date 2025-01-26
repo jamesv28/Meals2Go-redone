@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Colors } from "react-native-paper";
 import RestaurantInfoCard from "../../components/restaurant-info-card.component";
-import { Platform, FlatList, Pressable } from "react-native";
+import { Platform, FlatList, TouchableOpacity } from "react-native";
 import {
   Restaurantcontainer,
   Loading,
@@ -27,11 +27,13 @@ const RestaurantsScreen = ({ navigation }) => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("RestaurantDetail")}
+            >
               <Spacer size="large" position="bottom">
                 <RestaurantInfoCard restaurant={item} />
               </Spacer>
-            </Pressable>
+            </TouchableOpacity>
           );
         }}
         keyExtractor={(item) => item.name}
